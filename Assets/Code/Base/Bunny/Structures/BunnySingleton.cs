@@ -8,9 +8,9 @@ This should be used for high-order game objects (GameManager, AudioManager, etc.
 This should not be used for entities (Player, Boss, NPC, items).
 */
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class BunnySingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance = null;
+    protected static T _instance = null;
 
     public static T Instance
     {
