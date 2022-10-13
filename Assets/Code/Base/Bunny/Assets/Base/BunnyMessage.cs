@@ -10,14 +10,20 @@ public enum BunnyMessagePriority
     HIGH
 }
 
-public abstract class BunnyMessage<T> where T : class
+public struct BunnyMessage
 {
-
-    public BunnyEntity to;
-    public BunnyEntity from;
-    public BunnyMessagePriority priority;
+    public string Name;
+    public BunnyEntity sender;
+    public BunnyEntity receiver;
     public float lifetime;
-    public T payload;
+    public object value;
 
-    public abstract T GetValue();
+    public T GetValue<T>()
+    {
+        if(value is T)
+        {
+            return (T) value;
+        }
+        return default(T);
+    }
 }

@@ -3,23 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BunnyBrokerMessage : BunnyMessage<Action> {
-    public string Name { get; set; }
-
-    public BunnyBrokerMessage(string name, Action cb, Action pl, BunnyMessagePriority prio = BunnyMessagePriority.LOW, float limit = 3)
-    {
-        Name = name;
-        payload = pl;
-        priority = prio;
-        lifetime = limit;
-    }
-
-    public override Action GetValue()
-    {
-        return payload;
-    }
-}
-
 public class BunnyBroker : BunnyEntity
 {
     private static BunnyBroker _instance = null;
@@ -45,18 +28,27 @@ public class BunnyBroker : BunnyEntity
     public static BunnyBroker GetInstance()
     {
         return _instance;
-    }
+    } 
 
-    public void Subscribe(BunnyBrokerMessage message)
+    public void Subscribe(BunnyMessage message)
     {
         if(!EventLibrary.ContainsKey(message.Name))
         {
             EventLibrary.Add(message.Name, new List<Action>());
         }
-        EventLibrary[message.Name].Add((Action) message.GetValue());
+        EventLibrary[message.Name].Add(message.GetValue<Action>());
     }
 
-    public void Publish(BunnyBrokerMessage message)
+    public void Unsubscribe(BunnyMessage message)
+    {
+        if(!EventLibrary.ContainsKey(message.Name))
+        {
+            return;
+        }
+        EventLibrary[message.Name].Remove(message.GetValue<Action>());
+    }
+
+    public void Publish(BunnyMessage message)
     {
         if(!EventLibrary.ContainsKey(message.Name)) {
             Debug.LogWarning($"BunnyBroker: Event Name '{message.Name}' not found");
