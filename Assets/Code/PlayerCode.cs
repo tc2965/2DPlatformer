@@ -31,6 +31,8 @@ public class PlayerCode : MonoBehaviour
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y); 
         if (xSpeed > 0.01) {
             _animator.ResetTrigger("Punch");
+            _animator.ResetTrigger("Jump");
+
         }
 
         _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
@@ -43,6 +45,7 @@ public class PlayerCode : MonoBehaviour
             if (Input.GetButtonDown("Jump") && grounded) 
             {
                 _rigidbody.AddForce(new Vector2(0, jumpforce));
+                _animator.SetTrigger("Jump");
             }
 
             if (Input.GetKeyDown(KeyCode.Q)) {
