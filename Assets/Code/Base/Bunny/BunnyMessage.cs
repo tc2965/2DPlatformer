@@ -3,11 +3,19 @@ using UnityEngine;
 
 // May have to look to building a policy object for enforcing things like a lifetime policy.
 
+public enum BunnyMessagePriority
+{
+    Low,
+    Medium,
+    High
+}
+
 public class BunnyMessage<T> : MonoBehaviour
 {
 
     [ReadOnly] public BunnyEntity to;
     [ReadOnly] public BunnyEntity from;
+    [ReadOnly] public BunnyMessagePriority priority;
     public float lifetime;
     public object _payload;
 
