@@ -17,6 +17,7 @@ public class PlayerCode : MonoBehaviour
     float xSpeed =  0;
 
     public bool paused = false;
+    private bool punch = false;
 
     void Start()
     {
@@ -28,23 +29,31 @@ public class PlayerCode : MonoBehaviour
     {
         xSpeed = Input.GetAxisRaw("Horizontal") * speed;
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y); 
+        if (xSpeed > 0.01) {
+            _animator.ResetTrigger("Punch");
+        }
 
         _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
     }
 
     private void Update() {
-
         if(!paused) 
         {
             grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
-            if(Input.GetButtonDown("Jump") && grounded) 
+            if (Input.GetButtonDown("Jump") && grounded) 
             {
                 _rigidbody.AddForce(new Vector2(0, jumpforce));
             }
+
+            if (Input.GetKeyDown(KeyCode.Q)) {
+                _animator.SetTrigger("Punch");
+            }
+            
         } 
         else 
         {
             Time.timeScale = 0;
         }
     }
+
 }
