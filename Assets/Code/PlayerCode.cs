@@ -13,7 +13,7 @@ public class PlayerCode : MonoBehaviour
     public LayerMask groundLayer;
 
     Rigidbody2D _rigidbody; //in inspector: make gravity scale 5, freeze rotation on z axis
-
+    Animator _animator;
     float xSpeed =  0;
 
     public bool paused = false;
@@ -21,13 +21,15 @@ public class PlayerCode : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         xSpeed = Input.GetAxisRaw("Horizontal") * speed;
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y); 
+
+        _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
     }
 
     private void Update() {
