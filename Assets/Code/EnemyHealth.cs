@@ -10,12 +10,14 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth; 
     public GameObject healthImage; 
     public Slider healthBar;
+    Animator _animator;
 
     void Start()
     {
         maxHealth = 100;
         health = maxHealth;
         healthImage.SetActive(false);
+        _animator = GetComponent<Animator>();
     }
 
     void Update() 
@@ -37,7 +39,13 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            StartCoroutine(Die());
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator Die() {
+        _animator.SetTrigger("Die");
+        yield return new WaitForSeconds(3);
     }
 }
