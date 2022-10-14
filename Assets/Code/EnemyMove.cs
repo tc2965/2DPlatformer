@@ -9,6 +9,7 @@ public class EnemyMove : MonoBehaviour
     private GameObject player; 
     private Transform playerPosition; 
     private Vector2 currentPosition; 
+    private bool facingRight;
     Animator _animator;
 
     void Start() 
@@ -28,6 +29,14 @@ public class EnemyMove : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speedEnemy * Time.deltaTime);
             _animator.SetFloat("Speed", Mathf.Abs(speedEnemy));
+            float playerToEnemy = transform.position.x - playerPosition.position.x;
+            if (playerToEnemy < 0 && facingRight) {
+                facingRight = !facingRight;
+                transform.Rotate(new Vector3(0, 180, 0));
+            } else if (playerToEnemy > 0 && !facingRight) {
+                facingRight = !facingRight;
+                transform.Rotate(new Vector3(0, 180, 0));
+            }
         }
     }
 }
