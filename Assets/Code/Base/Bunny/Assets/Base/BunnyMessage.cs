@@ -26,6 +26,28 @@ public interface IMessageSubscriber
     Task SubscribeAsync<T>(string topic, Action<T> handler) where T : IMessage;
 }
 
+public class BunnyBrokerMessage<T> : IMessage
+{
+    public BunnyChannelType channel;
+    public BunnyMessagePriority priority;
+    public T payload;
+    public object sender;
+    public float lifetime = 3.0f;
+
+    public BunnyBrokerMessage(
+        T value,
+        object source,
+        BunnyChannelType channelType = BunnyChannelType.DefaultChannel,
+        BunnyMessagePriority prio = BunnyMessagePriority.LOW
+    ) 
+    {
+        payload  = value;
+        sender = source;
+        channel = channelType;
+        priority = prio;
+    }
+}
+
 public class BunnyMessage : IMessage
 {
     public string Name;
