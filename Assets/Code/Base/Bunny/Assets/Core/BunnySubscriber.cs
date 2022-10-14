@@ -28,12 +28,17 @@ public class BunnySubscriber : MonoBehaviour
 
     private void Awake()
     {
+        act = testStuff;
         BunnyBroker.Instance.Subscribe(new BunnyMessage(
             EventName,
             act,
             this,
             BunnyChannelType.DefaultChannel
         ));
+    }
+
+    public void testStuff(ResponseTest test) {
+        Debug.Log("Got parms " + test.val);
     }
 
 
@@ -45,6 +50,7 @@ public class BunnySubscriber : MonoBehaviour
 
     private void OnDestroy()
     {
+        act = testStuff;
         BunnyBroker.Instance.Unsubscribe(new BunnyMessage(
             EventName,
             act,

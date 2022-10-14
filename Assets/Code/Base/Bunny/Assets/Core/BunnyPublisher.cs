@@ -9,12 +9,18 @@ public class BunnyPublisher : MonoBehaviour
     public event Action<ResponseTest> act;
     public void PublishBoolean(bool val)
     {
+        act = testStuff;
         BunnyBroker.GetInstance().Publish(new BunnyMessage(
             EventName,
             act,
             this,
             BunnyChannelType.DefaultChannel
         ));
+    }
+
+
+    public void testStuff(ResponseTest test) {
+        Debug.Log("Got parms " + test.val);
     }
 
     private void Awake() {

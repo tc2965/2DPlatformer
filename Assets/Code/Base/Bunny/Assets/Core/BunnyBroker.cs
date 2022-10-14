@@ -70,7 +70,7 @@ public class BunnyBroker : BunnyEntity
     
     public void Subscribe(BunnyMessage message)
     {
-        Debug.Log("Got sub first");
+        Debug.Log("Got sub first" + message.GetValue<object>().GetType());
         if(!EventLibrary.ContainsKey(message.channel))
         {
             EventLibrary.Add(message.channel, new List<KeyValuePair<string, Action<object>>>());
@@ -103,7 +103,7 @@ public class BunnyBroker : BunnyEntity
             try
             {
                 Debug.Log("Callback key is: " + callback.Key + " " + callback.Value?.GetType());
-                callback.Value.Invoke(message);
+                callback.Value?.Invoke(message);
             } catch (Exception ex)
             {
                 Debug.LogException(ex);
