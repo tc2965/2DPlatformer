@@ -1,3 +1,7 @@
+using System;
+using System.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
@@ -10,13 +14,32 @@ public enum BunnyMessagePriority
     HIGH
 }
 
-public struct BunnyMessage
+public interface IMessage {}
+
+public interface IMessagePublisher
+{
+    Task PublishAsync<T>(string topic, T message) where T : IMessage;
+}
+
+public interface IMessageSubscriber
+{
+    Task SubscribeAsync<T>(string topic, Action<T> handler) where T : IMessage;
+}
+
+public class BunnyMessage : IMessage
 {
     public string Name;
-    public BunnyEntity sender;
-    public BunnyEntity receiver;
+    public string channel;
+    public object sender;
     public float lifetime;
     public object value;
+
+    public BunnyMessage(string name, object payload, object source, string channel) {
+        this.Name = name;
+        this.value = payload;
+        this.sender = source;
+        this.channel = channel;
+    }
 
     public T GetValue<T>()
     {
