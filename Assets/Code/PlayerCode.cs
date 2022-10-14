@@ -81,16 +81,8 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        print("hit something");
-        if (other.gameObject.CompareTag("Enemy")) {
-            print("hit enemy");
-        }
-    }
-
-    private void TakeDamage() {
-        health -= 10;
+    public void TakeDamage() {
+        health -= 3;
         _animator.SetTrigger("Damaged");
         UpdateHealthBar();
     }
@@ -100,9 +92,7 @@ public class PlayerCode : MonoBehaviour
     }
 
     void Attack(int damage) {
-        print("in attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        print(hitEnemies);
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
         }

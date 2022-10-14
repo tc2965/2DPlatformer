@@ -6,6 +6,9 @@ public class EnemyMove : MonoBehaviour
 {
     public float distance = 3; 
     public float speedEnemy = 0.25f;
+    public Transform attackPosition;
+    public float attackRange = 0.6f;
+
     private GameObject player; 
     private Transform playerPosition; 
     private Vector2 currentPosition; 
@@ -14,6 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start() 
     {
+        facingRight = false;
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player) {
             print("can't find player");
@@ -39,5 +43,11 @@ public class EnemyMove : MonoBehaviour
             }
         }
     }
-}
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player")) {
+            other.gameObject.GetComponent<PlayerCode>().TakeDamage();
+        }
+    }
+}
