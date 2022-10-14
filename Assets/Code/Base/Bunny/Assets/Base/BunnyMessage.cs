@@ -26,4 +26,10 @@ public struct BunnyMessage
         }
         return default(T);
     }
+
+    public Component GetSenderAsComponent()
+    {
+        if(sender is Component) return (Component)sender;
+        return null;
+    }
 }
