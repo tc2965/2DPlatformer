@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  speedEnemy: 5
+  speedEnemy: 1
 --- !u!1 &41864404
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  speedEnemy: 0.25
+  speedEnemy: 1
 --- !u!114 &41864406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  speedEnemy: 0.25
+  speedEnemy: 1
 --- !u!50 &1978608558
 Rigidbody2D:
   serializedVersion: 4
