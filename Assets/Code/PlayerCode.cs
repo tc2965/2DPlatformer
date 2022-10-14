@@ -20,18 +20,20 @@ public class PlayerCode : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask enemyLayers;
 
-    Rigidbody2D _rigidbody; //in inspector: make gravity scale 5, freeze rotation on z axis
-    Animator _animator;
-    float xSpeed =  0;
-
     public bool paused = false;
 
-
+    Rigidbody2D _rigidbody; //in inspector: make gravity scale 5, freeze rotation on z axis
+    Animator _animator;
+    SpriteRenderer _renderer;
+    float xSpeed =  0;
+    private bool facingRight;
 
     void Start()
     {
+        facingRight = true;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -43,6 +45,14 @@ public class PlayerCode : MonoBehaviour
         if(!paused) 
         {
             xSpeed = Input.GetAxisRaw("Horizontal") * speed;
+            if (xSpeed > 0 && !facingRight) {
+                facingRight = !facingRight;
+                transform.Rotate(new Vector3(0, 180, 0));
+            } else if (xSpeed < 0 && facingRight) {
+                facingRight = !facingRight;
+                transform.Rotate(new Vector3(0, 180, 0));
+            }
+            _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
             _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y); 
             // if (xSpeed > 0.01) {
             //     _animator.ResetTrigger("Punch");
@@ -63,8 +73,6 @@ public class PlayerCode : MonoBehaviour
             } else if (Input.GetKeyDown(KeyCode.E)) {
                 _animator.SetTrigger("Shoot");
                 Attack(25);
-            } else {
-                _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
             }
         } 
         else 
