@@ -29,12 +29,12 @@ public interface IMessageSubscriber
 public class BunnyMessage : IMessage
 {
     public string Name;
-    public string channel;
+    public BunnyChannelType channel;
     public object sender;
     public float lifetime;
     public object value;
 
-    public BunnyMessage(string name, object payload, object source, string channel) {
+    public BunnyMessage(string name, object payload, object source, BunnyChannelType channel) {
         this.Name = name;
         this.value = payload;
         this.sender = source;

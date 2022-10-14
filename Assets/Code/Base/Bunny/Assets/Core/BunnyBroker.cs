@@ -31,11 +31,11 @@ public interface IBunnyListener
 
 public class BunnyBroker : BunnyEntity
 {
-    private static BunnyBroker _instance = null;
+    private static GameObject _instance = null;
     public static readonly object padlock = new object();
 
     // private Queue<BunnyMessage> _messages;
-    private Dictionary<string, List<Action<object>>> EventLibrary  = new Dictionary<string, List<Action<object>>>();
+    public Dictionary<BunnyChannelType, List<KeyValuePair<string, Action<object>>>> EventLibrary  = new Dictionary<BunnyChannelType, List<KeyValuePair<string, Action<object>>>>();
     private BunnyBroker() {}
     public static BunnyBroker Instance
     {
@@ -45,50 +45,65 @@ public class BunnyBroker : BunnyEntity
             {
                 if(_instance == null)
                 {
-                    _instance = new BunnyBroker();
+                    _instance = new GameObject("BunnyBroker");
+                } else {
+                    Destroy(_instance);
                 }
-                return _instance;
+                return _instance.AddComponent<BunnyBroker>();
             }
         }
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public static BunnyBroker GetInstance()
     {
-        return _instance;
+        return BunnyBroker.Instance.GetComponent<BunnyBroker>();
     } 
     // public void Submit(BunnyMessage message)
     // {
     //     _messages.Enqueue(message);
     // }
     
-    public void Subscribe<T>(BunnyMessage message)
+    public void Subscribe(BunnyMessage message)
     {
-        if(!EventLibrary.ContainsKey(message.Name))
+        Debug.Log("Got sub first");
+        if(!EventLibrary.ContainsKey(message.channel))
         {
-            EventLibrary.Add(message.Name, new List<Action<object>>());
+            EventLibrary.Add(message.channel, new List<KeyValuePair<string, Action<object>>>());
         }
-        EventLibrary[message.Name].Add(message.GetValue<Action<object>>());
+        EventLibrary[message.channel].Add(new KeyValuePair<string, Action<object>>(message.Name, message.GetValue<Action<object>>()));
     }
 
     public void Unsubscribe(BunnyMessage message)
     {
-        if(!EventLibrary.ContainsKey(message.Name))
+        if(!EventLibrary.ContainsKey(message.channel))
         {
             return;
         }
-        EventLibrary[message.Name].Remove(message.GetValue<Action<object>>());
+        EventLibrary[message.channel].Remove(new KeyValuePair<string, Action<object>>(message.Name, message.GetValue<Action<object>>()));
     }
 
-    public void Publish<T>(BunnyMessage message)
+    public void Publish(BunnyMessage message)
     {
-        if(!EventLibrary.ContainsKey(message.Name)) {
-            Debug.LogWarning($"BunnyBroker: Attempt made to publish to nonexistent event'{message.Name}'. Please check where this call is being made.");
+        Debug.Log("Got a pub req");
+        if(!EventLibrary.ContainsKey(message.channel)) {
+            Debug.LogWarning($"BunnyBroker: Attempt made to publish to nonexistent event'{message.channel}'. Please check where this call is being made.");
+            return;
         }
-        foreach(var callback in EventLibrary[message.Name])
+        foreach(var callback in EventLibrary[message.channel])
         {
+            Debug.Log("Callback key is: " + callback.Key);
+            Debug.Log("Callback key is: " + callback.Key + " " + callback.Value);
+
+
             try
             {
-                callback.Invoke(message.GetValue<T>());
+                Debug.Log("Callback key is: " + callback.Key + " " + callback.Value?.GetType());
+                callback.Value.Invoke(message);
             } catch (Exception ex)
             {
                 Debug.LogException(ex);
