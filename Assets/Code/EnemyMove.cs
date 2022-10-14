@@ -17,7 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start() 
     {
-        facingRight = true;
+        facingRight = false;
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player) {
             print("can't find player");
@@ -41,11 +41,13 @@ public class EnemyMove : MonoBehaviour
                 facingRight = !facingRight;
                 transform.Rotate(new Vector3(0, 180, 0));
             }
-            
-            // if (Vector2.Distance(transform.position, playerPosition.position) < attackRange) {
+        }
+    }
 
-            // }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player")) {
+            other.gameObject.GetComponent<PlayerCode>().TakeDamage();
         }
     }
 }
-
