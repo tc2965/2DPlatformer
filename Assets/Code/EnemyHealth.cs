@@ -39,13 +39,13 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            _animator.SetTrigger("Die");
             StartCoroutine(Die());
             Destroy(gameObject);
         }
     }
 
     IEnumerator Die() {
-        _animator.SetTrigger("Die");
         yield return new WaitForSeconds(3);
     }
 }
