@@ -28,23 +28,42 @@ public interface IMessageSubscriber
 
 public class BunnyBrokerMessage<T> : IMessage
 {
-    public BunnyChannelType channel;
-    public BunnyMessagePriority priority;
+    public BunnyChannelType channel = BunnyChannelType.DefaultChannel;
+    public BunnyMessagePriority priority =  BunnyMessagePriority.LOW;
     public T payload;
     public object sender;
     public float lifetime = 3.0f;
 
+    public BunnyBrokerMessage()
+    {
+        payload = default(T);
+        sender = BunnyMessageBroker.Instance;
+        channel = BunnyChannelType.DefaultChannel;
+        priority =  BunnyMessagePriority.LOW;
+    }
+
+    public BunnyBrokerMessage(
+        T value,
+        object source
+    ) 
+    {
+        payload  = value;
+        sender = source;
+        channel = BunnyChannelType.DefaultChannel;
+        priority =  BunnyMessagePriority.LOW;
+    }
+
     public BunnyBrokerMessage(
         T value,
         object source,
-        BunnyChannelType channelType = BunnyChannelType.DefaultChannel,
-        BunnyMessagePriority prio = BunnyMessagePriority.LOW
+        BunnyChannelType channelType,
+        BunnyMessagePriority prio 
     ) 
     {
         payload  = value;
         sender = source;
         channel = channelType;
-        priority = prio;
+        priority =  prio;
     }
 }
 

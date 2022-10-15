@@ -8,8 +8,8 @@ using UnityEngine;
 public interface IMessageBroker : IDisposable
 {
     void Publish<T>(BunnyBrokerMessage<T> message);
-    void Subscribe<T>(Action<BunnyBrokerMessage<T>> subscription);
-    void Unsubscribe<T>(Action<BunnyBrokerMessage<T>> subscription);
+    void Subscribe<T>(Action<BunnyBrokerMessage<T>> subscription, BunnyChannelType channel);
+    void Unsubscribe<T>(Action<BunnyBrokerMessage<T>> subscription, BunnyChannelType channel);
 }
 
 public class BunnyMessageBroker : MonoBehaviour, IMessageBroker
@@ -22,13 +22,14 @@ public class BunnyMessageBroker : MonoBehaviour, IMessageBroker
     // Establish singleton design pattern
     private BunnyMessageBroker() {
         _subscribers = new Dictionary<BunnyChannelType, Dictionary<Type, List<Delegate>>>();
-        foreach(BunnyChannelType channel in Enum.GetValues(typeof(BunnyChannelType)))
+        foreach(BunnyChannelType channel in Enum.GetValues(typeof(BunnyChannelType)).Cast<BunnyChannelType>())
         {
+            Debug.Log(channel);
             _subscribers.Add(channel, new Dictionary<Type, List<Delegate>>());
         }
     }
 
-    public static BunnyMessageBroker GetInstance 
+    public static BunnyMessageBroker Instance 
     {
         get
         {
@@ -37,10 +38,9 @@ public class BunnyMessageBroker : MonoBehaviour, IMessageBroker
                 if(_instance == null)
                 {
                     _instance = new GameObject("BunnyMessageBroker");
-                } else {
-                    Destroy(_instance);
+                    _instance.AddComponent<BunnyMessageBroker>();
                 }
-                return _instance.AddComponent<BunnyMessageBroker>();
+                return _instance.GetComponent<BunnyMessageBroker>();
             }
         }
     }
@@ -66,14 +66,26 @@ public class BunnyMessageBroker : MonoBehaviour, IMessageBroker
 
     }
 
-    public void Subscribe<T>(Action<BunnyBrokerMessage<T>> subscription) 
+    public void Subscribe<T>(Action<BunnyBrokerMessage<T>> subscription, BunnyChannelType channel) 
     {
-
+        var delegates = _subscribers[channel].ContainsKey(typeof(T)) ? 
+                        _subscribers[channel][typeof(T)] : new List<Delegate>();
+        if(!delegates.Contains(subscription))
+        {
+            delegates.Add(subscription);
+        }
+        _subscribers[channel][typeof(T)] = delegates;
     }
 
-    public void Unsubscribe<T>(Action<BunnyBrokerMessage<T>> subscription)
+    public void Unsubscribe<T>(Action<BunnyBrokerMessage<T>> subscription, BunnyChannelType channel)
     {
-
+        if(!_subscribers[channel].ContainsKey(typeof(T)))
+            return;
+        var delegates = _subscribers[channel][typeof(T)];
+        if (delegates.Contains(subscription))
+            delegates.Remove(subscription);
+        if (delegates.Count == 0)
+            _subscribers[channel].Remove(typeof(T));
     }
 
     public void Dispose()
