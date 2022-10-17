@@ -34,7 +34,8 @@ public class BunnyExampleSubscriber : MonoBehaviour
     private void OnDestroy()
     {
         // act = testNewStuff;
-        BunnyMessageBroker.Instance.Unsubscribe<ResponseTest>(act, BunnyChannelType.DefaultChannel);
+        BunnyMessageBroker.Instance.testEvent.Disconnect<ResponseTest>(act);
+        // BunnyMessageBroker.Instance.Unsubscribe<ResponseTest>(act, BunnyChannelType.DefaultChannel);
     }
     // Start is called before the first frame update
     void Start()
