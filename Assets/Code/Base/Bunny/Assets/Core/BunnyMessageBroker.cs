@@ -19,12 +19,19 @@ public class BunnyMessageBroker : MonoBehaviour, IMessageBroker
     public static readonly object padlock = new object();
     private readonly Dictionary<BunnyChannelType, Dictionary<Type, List<Delegate>>> _subscribers;
 
+    // Test Stuff Start
+    public BunnyEvent testEvent;
+    public Optional<string> nameTest;
+    // Test Stuff End
+
     // Establish singleton design pattern
     private BunnyMessageBroker() {
+        // Test Stuff Start
+         testEvent = new BunnyEvent("PrintTrue", this);
+        // Test Stuff End
         _subscribers = new Dictionary<BunnyChannelType, Dictionary<Type, List<Delegate>>>();
         foreach(BunnyChannelType channel in Enum.GetValues(typeof(BunnyChannelType)).Cast<BunnyChannelType>())
         {
-            Debug.Log(channel);
             _subscribers.Add(channel, new Dictionary<Type, List<Delegate>>());
         }
     }
@@ -43,6 +50,11 @@ public class BunnyMessageBroker : MonoBehaviour, IMessageBroker
                 return _instance.GetComponent<BunnyMessageBroker>();
             }
         }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(_instance);
     }
 
     public void Publish<T>(BunnyBrokerMessage<T> message) 

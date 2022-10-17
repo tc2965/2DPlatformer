@@ -8,16 +8,15 @@ public class ResponseTest {
     public bool val = true;
 }
 
-public class BunnySubscriber : MonoBehaviour
+public class BunnyExampleSubscriber : MonoBehaviour
 {
-
-    public string EventName;
     public Action<BunnyBrokerMessage<ResponseTest>> act;
 
     private void Awake()
     {
         act = testNewStuff;
-        BunnyMessageBroker.Instance.Subscribe<ResponseTest>(act, BunnyChannelType.DefaultChannel);
+        // BunnyMessageBroker.Instance.Subscribe<ResponseTest>(act, BunnyChannelType.DefaultChannel);
+        BunnyMessageBroker.Instance.testEvent.OnEventRaised<ResponseTest>(act);
         // act = testStuff;
         // BunnyBroker.Instance.Subscribe(new BunnyMessage(
         //     EventName,

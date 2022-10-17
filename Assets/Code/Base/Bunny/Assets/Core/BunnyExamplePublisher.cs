@@ -13,10 +13,12 @@ public class BunnyExamplePublisher : MonoBehaviour
             },
             this
         );
-        BunnyMessageBroker.Instance.Publish<ResponseTest>(res);
+        // BunnyMessageBroker.Instance.Publish<ResponseTest>(res);
+        BunnyMessageBroker.Instance.testEvent.Fire<ResponseTest>(res);
     }
 
     private void Awake() {
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class BunnyExamplePublisher : MonoBehaviour
          PublishBoolean(false);
         // StartCoroutine(ExampleCoroutine());
     }
-    
+
     // Update is called once per frame
     void Update()
     {
