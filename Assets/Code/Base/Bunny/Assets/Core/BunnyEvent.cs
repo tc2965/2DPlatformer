@@ -52,8 +52,10 @@ public class BunnyEvent : IBunnyEvent
     public void Fire<T>(BunnyBrokerMessage<T> message)
     {
         var payloadType = typeof(T);
-        if(!_subscribers.ContainsKey(payloadType))
+        if(!_subscribers.ContainsKey(payloadType)) {
+            Debug.LogWarning($"No subscribers found for BunnyEvent<{payloadType}> for EventName: {EventName}. Please check your code to see if subscribers are intentionally excluded.");
             return;
+        }
 
         var delegates = _subscribers[typeof(T)];
         if (delegates == null || delegates.Count == 0) return;
