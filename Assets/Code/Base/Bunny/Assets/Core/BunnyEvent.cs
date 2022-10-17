@@ -1,10 +1,7 @@
 using System;
-
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Jobs;
-using Unity.Collections;
 using UnityEngine;
 
 /*
@@ -75,5 +72,10 @@ public class BunnyEvent : IBunnyEvent
             delegates.Remove(subscription);
         if (delegates.Count == 0)
             _subscribers.Remove(typeof(T));
+    }
+
+    public void Disable()
+    {
+        _subscribers.Clear();
     }
 }

@@ -15,15 +15,8 @@ public class BunnyExampleSubscriber : MonoBehaviour
     private void Awake()
     {
         act = testNewStuff;
-        // BunnyMessageBroker.Instance.Subscribe<ResponseTest>(act, BunnyChannelType.DefaultChannel);
-        BunnyMessageBroker.Instance.testEvent.OnEventRaised<ResponseTest>(act);
-        // act = testStuff;
-        // BunnyBroker.Instance.Subscribe(new BunnyMessage(
-        //     EventName,
-        //     act,
-        //     this,
-        //     BunnyChannelType.DefaultChannel
-        // ));
+        BunnyEventManager.Instance.RegisterEvent("PrintTrue", this);
+        BunnyEventManager.Instance.OnEventRaised<ResponseTest>("PrintTrue", act);
     }
 
     public void testNewStuff(BunnyBrokerMessage<ResponseTest>  msg)
@@ -33,10 +26,9 @@ public class BunnyExampleSubscriber : MonoBehaviour
 
     private void OnDestroy()
     {
-        // act = testNewStuff;
-        BunnyMessageBroker.Instance.testEvent.Disconnect<ResponseTest>(act);
-        // BunnyMessageBroker.Instance.Unsubscribe<ResponseTest>(act, BunnyChannelType.DefaultChannel);
+        BunnyEventManager.Instance.Disconnect("PrintTrue");
     }
+
     // Start is called before the first frame update
     void Start()
     {
