@@ -8,7 +8,7 @@ namespace Editor
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            var eventNameProperty = property.FindPropertyRelative("EventName");
+            var eventNameProperty = property.FindPropertyRelative("eventName");
             return EditorGUI.GetPropertyHeight(eventNameProperty);
         }
 
@@ -17,10 +17,12 @@ namespace Editor
             SerializedProperty property,
             GUIContent label
         ) {
-            var eventNameProperty = property.FindPropertyRelative("EventName");
+            var eventNameProperty = property.FindPropertyRelative("eventName");
             EditorGUI.BeginProperty(position, label, eventNameProperty);
             position.width -= 24;
+            GUI.enabled = false; // Unity hack to make property appear disabled
             EditorGUI.PropertyField(position, eventNameProperty, label, true);
+            GUI.enabled = true;
             EditorGUI.EndProperty();
         }
     }
