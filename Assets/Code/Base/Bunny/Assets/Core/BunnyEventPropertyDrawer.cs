@@ -19,7 +19,6 @@ namespace Editor
         ) {
             var eventNameProperty = property.FindPropertyRelative("eventName");
             EditorGUI.BeginProperty(position, label, eventNameProperty);
-            position.width -= 24;
             GUI.enabled = false; // Unity hack to make property appear disabled
             EditorGUI.PropertyField(position, eventNameProperty, label, true);
             GUI.enabled = true;
