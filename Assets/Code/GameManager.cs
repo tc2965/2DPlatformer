@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Level1");
+        Time.timeScale = 1;
+    }
+    
     public IEnumerator LoadOptions()
     {
         yield return new WaitForSeconds(0f);
@@ -81,14 +87,14 @@ public class GameManager : MonoBehaviour
     {
         player.paused = true;
         deathScreen.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
     }
 
     public void ShowPauseMenu()
     {
         player.paused = true;
         pauseMenu.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
     }
 
     public void ShowSettingsMenu()
@@ -100,14 +106,14 @@ public class GameManager : MonoBehaviour
     {
         deathScreen.SetActive(false);
         player.paused = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     public void ClosePauseMenu()
     {
         settingsMenu.SetActive(false);
         pauseMenu.SetActive(false);
         player.paused = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         SaveOptions();
     }
     public void CloseOptionsMenu()
