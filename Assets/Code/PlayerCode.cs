@@ -9,10 +9,11 @@ public class PlayerCode : MonoBehaviour
     public int jumpforce = 800;
     public float health = 100;
     public float maxHealth = 100;
+    public float attackRange = 0.6f;
 
     public Transform feetTrans;
     public Transform attackPoint;
-    public float attackRange = 0.6f;
+    public GameObject bulletPrefab;
 
     public bool grounded = false;
     public Slider healthBar;
@@ -72,6 +73,8 @@ public class PlayerCode : MonoBehaviour
                 Attack(15);
             } else if (Input.GetKeyDown(KeyCode.E)) {
                 _animator.SetTrigger("Shoot");
+                GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, transform.rotation);
+                bullet.GetComponent<Rigidbody2D>().AddForce(attackPoint.right * 5000.0f);
                 Attack(25);
             }
         } 
