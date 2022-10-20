@@ -44,6 +44,7 @@ public class PlayerCode : MonoBehaviour
     private void Update() {
         if(!paused) 
         {
+            Time.timeScale = 1;
             xSpeed = Input.GetAxisRaw("Horizontal") * speed;
             if (xSpeed > 0 && !facingRight) {
                 facingRight = !facingRight;
