@@ -13,6 +13,7 @@ public class PlayerCode : MonoBehaviour
     public Transform feetTrans;
     public Transform attackPoint;
     public float attackRange = 0.6f;
+    public GameObject bulletPrefab;
 
     public bool grounded = false;
     public Slider healthBar;
@@ -27,6 +28,7 @@ public class PlayerCode : MonoBehaviour
     SpriteRenderer _renderer;
     float xSpeed =  0;
     private bool facingRight;
+    private int numberOfBullets = 0;
 
     void Start()
     {
@@ -72,8 +74,13 @@ public class PlayerCode : MonoBehaviour
                 _animator.SetTrigger("Kick");
                 Attack(15);
             } else if (Input.GetKeyDown(KeyCode.E)) {
-                _animator.SetTrigger("Shoot");
-                Attack(25);
+                if (numberOfBullets > 0) {
+                    numberOfBullets--;
+                    _animator.SetTrigger("Shoot");
+                    GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, transform.rotation);
+                    bullet.GetComponent<Rigidbody2D>().AddForce(attackPoint.right * 5000.0f);
+                    Attack(25);
+                }
             }
         } 
         else 
@@ -108,4 +115,7 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
+    public void IncrementBullets() {
+        numberOfBullets += 10;
+    }
 }
