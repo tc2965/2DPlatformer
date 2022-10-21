@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject healthImage; 
     public Slider healthBar;
     Animator _animator;
+    // private BunnyExamplePublisher enemyDeathPublisher;
 
     void Start()
     {
@@ -18,6 +19,12 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
         healthImage.SetActive(false);
         _animator = GetComponent<Animator>();
+        // GameObject publisher = GameObject.FindGameObjectWithTag("Publisher");
+        // if (publisher != null) {
+        //     enemyDeathPublisher = publisher.GetComponent<BunnyExamplePublisher>();
+        // } else {
+        //     print("no publisher found in enemy health");
+        // }
     }
 
     void Update() 
@@ -41,11 +48,23 @@ public class EnemyHealth : MonoBehaviour
         {
             _animator.SetTrigger("Die");
             StartCoroutine(Die());
+            EnemyDied();
             Destroy(gameObject);
         }
     }
 
     IEnumerator Die() {
         yield return new WaitForSeconds(3);
+    }
+
+    public void EnemyDied() 
+    {
+        BunnyBrokerMessage<EnemyDeath> enemyDied = new BunnyBrokerMessage<EnemyDeath>(
+            new EnemyDeath() {
+                died = true
+            }, 
+            this
+        );
+        BunnyEventManager.Instance.Fire<EnemyDeath>("EnemyDied", enemyDied);
     }
 }
