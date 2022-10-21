@@ -26,6 +26,7 @@ public class PlayerCode : MonoBehaviour
     Rigidbody2D _rigidbody; //in inspector: make gravity scale 5, freeze rotation on z axis
     Animator _animator;
     SpriteRenderer _renderer;
+    GameManager gameManager;
     float xSpeed =  0;
     private bool facingRight;
     private int numberOfBullets = 0;
@@ -36,6 +37,13 @@ public class PlayerCode : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
+
+        GameObject gameManagement = GameObject.FindGameObjectWithTag("GameManager");
+        if (gameManagement) {
+            gameManager = gameManagement.GetComponent<GameManager>();
+        } else {
+            print("no game manager found in enemy health");
+        }
     }
 
     void FixedUpdate()
@@ -102,6 +110,9 @@ public class PlayerCode : MonoBehaviour
 
     void UpdateHealthBar() {
         healthBar.value = health/maxHealth;
+        if (health <= 0) {
+            gameManager.ShowDeathScreen();
+        }
     }
 
     void Attack(int damage) {

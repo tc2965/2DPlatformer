@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
             player.paused = false;
         Time.timeScale = 1f;
         StartCoroutine(LoadOptions());
+        GameObject playerMaybe = GameObject.FindGameObjectWithTag("Player");
+        if (playerMaybe) {
+            player = playerMaybe.GetComponent<PlayerCode>();
+        } else {
+            print("no player found in gamemanager");
+        }
     }
 
     void Update()
