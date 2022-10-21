@@ -166,10 +166,11 @@ public class GameManager : MonoBehaviour
     {
         string currlevel = SceneManager.GetActiveScene().name;
         int nextlevel = currlevel[currlevel.Length-1] - '0';
-        if (nextlevel == 4) {
-            SceneManager.LoadScene("WinScene");
+        if (nextlevel == 3) {
+            SceneManager.LoadScene("WinScreen");
+        } else {
+            SceneManager.LoadScene("Level" + (++nextlevel).ToString());
         }
-        SceneManager.LoadScene("Level" + (++nextlevel).ToString());
     }
 
 }
