@@ -66,6 +66,13 @@ public class BunnyEventManager : MonoBehaviour
         return nEvent;
     }
 
+    public BunnyEvent FetchEvent(string EventName)
+    {
+        if(!_events.ContainsKey(EventName))
+            throw new EventRegistryException($"Event[{EventName}] does not exist.");
+        return _events[EventName];
+    }
+
     public void Fire<T>(string EventName, BunnyBrokerMessage<T> message)
     {
         if(!_events.ContainsKey(EventName)) {
