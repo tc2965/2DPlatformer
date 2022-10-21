@@ -15,13 +15,20 @@ public class NextLevel : MonoBehaviour
     private int enemiesDead = 0;
     private GameManager gameManager;
 
-    private void Awake()
+    private void Start()
     {
+        GameObject gameManagement = GameObject.FindGameObjectWithTag("GameManager");
+        if (gameManagement) {
+            gameManager = gameManagement.GetComponent<GameManager>();
+        } else {
+            print("no game manager found in enemy health");
+        }
+
         action = anEnemyDied;
-        BunnyEventManager.Instance.RegisterEvent("EnemyDied", this);
+        // BunnyEventManager.Instance.RegisterEvent("EnemyDied", this);
         BunnyEventManager.Instance.OnEventRaised<EnemyDeath>("EnemyDied", action);
     }
-
+    
     private void anEnemyDied(BunnyBrokerMessage<EnemyDeath> msg) {
         enemiesDead++;
         print(enemiesDead);
@@ -32,16 +39,6 @@ public class NextLevel : MonoBehaviour
         print(enemiesDead);
         if (other.gameObject.CompareTag("Player") && enemiesDead > 3) {
             gameManager.LoadNextLevel();
-        }
-    }
-
-    private void Start()
-    {
-        GameObject gameManagement = GameObject.FindGameObjectWithTag("GameManager");
-        if (gameManagement) {
-            gameManager = gameManagement.GetComponent<GameManager>();
-        } else {
-            print("no game manager found in enemy health");
         }
     }
 }
