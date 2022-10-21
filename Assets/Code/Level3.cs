@@ -7,7 +7,7 @@ public class Level3 : MonoBehaviour
 {
     public Action<BunnyBrokerMessage<EnemyDeath>> action;
     public GameObject bridge;
-    private int leftSideEnemies = 4;
+    private int leftSideEnemies = 8;
 
     private int enemiesDead = 0;
 
