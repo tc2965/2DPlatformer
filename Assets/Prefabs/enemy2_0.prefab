@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb46e933234c44c5492c526d5fccc646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 3
   speedEnemy: 1
   attackPosition: {fileID: 0}
   attackRange: 0.6
@@ -188,7 +187,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!1001 &5054912769923497612
 PrefabInstance:
   m_ObjectHideFlags: 0

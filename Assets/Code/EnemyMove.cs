@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public float distance = 3; 
+    private float distance = 15; 
     public float speedEnemy = 0.25f;
     public Transform attackPosition;
     public float attackRange = 0.6f;
@@ -29,18 +29,22 @@ public class EnemyMove : MonoBehaviour
 
     void Update() 
     {
-        if (Vector2.Distance(transform.position, playerPosition.position) < distance)
-        {
+        float playerToEnemyy = Mathf.Abs(transform.position.y - playerPosition.position.y);
+        if (playerToEnemyy < 1 && 
+            Vector2.Distance(transform.position, playerPosition.position) < distance) {
+
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speedEnemy * Time.deltaTime);
             _animator.SetFloat("Speed", Mathf.Abs(speedEnemy));
-            float playerToEnemy = transform.position.x - playerPosition.position.x;
-            if (playerToEnemy < 0 && facingRight) {
+            float playerToEnemyx = transform.position.x - playerPosition.position.x;
+            if (playerToEnemyx < 0 && facingRight) {
                 facingRight = !facingRight;
                 transform.Rotate(new Vector3(0, 180, 0));
-            } else if (playerToEnemy > 0 && !facingRight) {
+            } else if (playerToEnemyx > 0 && !facingRight) {
                 facingRight = !facingRight;
                 transform.Rotate(new Vector3(0, 180, 0));
             }
+        } else {
+            _animator.SetFloat("Speed", 0.0f);
         }
     }
 

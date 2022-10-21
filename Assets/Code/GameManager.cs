@@ -150,4 +150,14 @@ public class GameManager : MonoBehaviour
         SaveOptions();
     }
 
+    public void LoadNextLevel() 
+    {
+        string currlevel = SceneManager.GetActiveScene().name;
+        int nextlevel = currlevel[currlevel.Length-1] - '0';
+        if (nextlevel == 4) {
+            SceneManager.LoadScene("WinScene");
+        }
+        SceneManager.LoadScene("Level" + (++nextlevel).ToString());
+    }
+
 }
