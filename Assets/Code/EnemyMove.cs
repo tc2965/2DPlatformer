@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start() 
     {
+        speedEnemy = Random.Range(0.25f, 1.0f);
         facingRight = false;
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player) {
