@@ -13,4 +13,5 @@ public class BunnyDialogueRule
     public BunnyDialogueRule next;
     public BunnyDialogueNode speech;
     public bool isChoice;
+    public BunnyFactEntry speaker;
 }
