@@ -26,6 +26,11 @@ public class BunnyFactEntry : BunnyBaseEntry
         this.scope = newScope;
     }
 
+    // public override bool Equals(BunnyFactEntry other)
+    // {
+    //     other.Key = this.Key;
+    // }
+
     // public static BunnyFactEntry operator +(BunnyFactEntry entry, int b)
     // {
     //    return new BunnyFactEntry(entry.ID + b, entry.Scope);

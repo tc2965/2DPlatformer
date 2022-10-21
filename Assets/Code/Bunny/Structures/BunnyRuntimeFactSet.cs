@@ -10,7 +10,7 @@ class BunnyRuntimeSetException : Exception
     public BunnyRuntimeSetException(string message) {}
 }
 
-public class BunnyRuntimeFactSet<T> : ScriptableObject
+public abstract class BunnyRuntimeFactSet<T> : ScriptableObject
 {
     public Dictionary<BunnyFactEntry, T> items = new Dictionary<BunnyFactEntry, T>();
 
