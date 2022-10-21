@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public enum ChatBubbleDirection
-{
-    TopLeft,
-    TopRight
-}
-
-public class BunnyDialogueBehaviour : PlayableBehaviour
+public class BunnyDialogueChoiceBehaviour : PlayableBehaviour
 {
     [SerializeField]
-    public string Text;
+    public List<string> Options;
 
     [SerializeField]
     public Vector2 offset;
