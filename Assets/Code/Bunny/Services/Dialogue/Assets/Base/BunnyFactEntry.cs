@@ -16,11 +16,13 @@ public enum BunnyFactEntryScope
 public class BunnyFactEntry : BunnyBaseEntry
 {
     private BunnyFactEntryScope scope;
+    public string Key { get; set; }
     public BunnyFactEntryScope Scope => scope;
 
-    public BunnyFactEntry(int ID, BunnyFactEntryScope newScope = BunnyFactEntryScope.TEMPORARY)
+    public BunnyFactEntry(int ID, string key, BunnyFactEntryScope newScope = BunnyFactEntryScope.TEMPORARY)
     {
         this.ID = ID;
+        this.Key = key;
         this.scope = newScope;
     }
 

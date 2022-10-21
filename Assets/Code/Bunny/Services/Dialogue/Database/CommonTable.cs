@@ -10,17 +10,17 @@ public class CommonTableSO: ScriptableObject
 
     public CommonTableSO()
     {
-        Data["enemies_killed"] = new BunnyFactEntry(0, BunnyFactEntryScope.GLOBAL);
-        Data["player_deaths"] = new BunnyFactEntry(0, BunnyFactEntryScope.GLOBAL);
+        Data["enemies_killed"] = new BunnyFactEntry(0, "enemies_killed", BunnyFactEntryScope.GLOBAL);
+        Data["player_deaths"] = new BunnyFactEntry(0, "player_deaths", BunnyFactEntryScope.GLOBAL);
     }
 
-    public BunnyFactEntry InsertNewFact(string FactName, int value)
+    public BunnyFactEntry InsertNewFact(string FactName, string key, int value)
     {
         if(Data.ContainsKey(FactName))
         {
             Debug.LogWarning($"Key:{FactName} is being over-written for the Global Scope. This behaviour is discouraged.");
         }
-        BunnyFactEntry fact = new BunnyFactEntry(value, BunnyFactEntryScope.GLOBAL);
+        BunnyFactEntry fact = new BunnyFactEntry(value, key, BunnyFactEntryScope.GLOBAL);
         Data.Add(FactName, fact);
         return fact;
     }
