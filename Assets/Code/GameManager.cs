@@ -53,6 +53,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level1");
         Time.timeScale = 1;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit!");
+    }
     
     public IEnumerator LoadOptions()
     {
