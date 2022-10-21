@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8469502743403097472}
   - component: {fileID: 7852610775013819446}
   - component: {fileID: 437181711557679653}
+  - component: {fileID: 5323721003381291447}
   m_Layer: 0
   m_Name: lava forms_0
   m_TagString: Untagged
@@ -124,3 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f162ec55c8e74a508bb1a0946d89e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5323721003381291447
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811403187453331670}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1dba6f9d189044b0bf21cf4d9cc143d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
