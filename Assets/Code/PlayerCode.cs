@@ -105,7 +105,7 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage = 3) {
+    public void TakeDamage(float damage = 3.0f) {
         health -= damage;
         _animator.SetTrigger("Damaged");
         UpdateHealthBar();
