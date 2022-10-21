@@ -47,6 +47,11 @@ public class PlayerCode : MonoBehaviour
         if(!paused) 
         {
             Time.timeScale = 1;
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                speed = 10;
+            } else {
+                speed = 5;
+            }
             xSpeed = Input.GetAxisRaw("Horizontal") * speed;
             if (xSpeed > 0 && !facingRight) {
                 facingRight = !facingRight;

@@ -28,6 +28,8 @@ public class NextLevel : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        print("in trigger");
+        print(enemiesDead);
         if (other.gameObject.CompareTag("Player") && enemiesDead > 3) {
             gameManager.LoadNextLevel();
         }
