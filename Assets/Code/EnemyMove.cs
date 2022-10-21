@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     void Start() 
     {
+        speedEnemy = Random.Range(0.25f, 1.0f);
         facingRight = false;
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player) {
@@ -51,7 +52,7 @@ public class EnemyMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player")) {
-            other.gameObject.GetComponent<PlayerCode>().TakeDamage();
+            other.gameObject.GetComponent<PlayerCode>().TakeDamage(Random.Range(5, 15));
         }
     }
 }

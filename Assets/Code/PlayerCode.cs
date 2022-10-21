@@ -94,8 +94,8 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
-    public void TakeDamage() {
-        health -= 3;
+    public void TakeDamage(int damage = 3) {
+        health -= damage;
         _animator.SetTrigger("Damaged");
         UpdateHealthBar();
     }
@@ -108,6 +108,7 @@ public class PlayerCode : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
+            damage -= 5;
         }
     }
 
