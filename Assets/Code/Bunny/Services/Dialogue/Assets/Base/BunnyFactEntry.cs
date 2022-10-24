@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Collections;
 
 /*
 Used to get facts of the world.
@@ -16,7 +17,11 @@ public enum BunnyFactEntryScope
 public class BunnyFactEntry : BunnyBaseEntry
 {
     private BunnyFactEntryScope scope;
+
+    [SerializeField]
     public string Key { get; set; }
+
+    [SerializeField]
     public BunnyFactEntryScope Scope => scope;
 
     public BunnyFactEntry(int ID, string key, BunnyFactEntryScope newScope = BunnyFactEntryScope.TEMPORARY)
@@ -25,39 +30,4 @@ public class BunnyFactEntry : BunnyBaseEntry
         this.Key = key;
         this.scope = newScope;
     }
-
-    // public override bool Equals(BunnyFactEntry other)
-    // {
-    //     other.Key = this.Key;
-    // }
-
-    // public static BunnyFactEntry operator +(BunnyFactEntry entry, int b)
-    // {
-    //    return new BunnyFactEntry(entry.ID + b, entry.Scope);
-    // }
-
-    // public static BunnyFactEntry operator -(BunnyFactEntry entry, int b)
-    // {
-    //    return new BunnyFactEntry(entry.ID - b, entry.Scope);
-    // }
-
-    // public static BunnyFactEntry operator *(BunnyFactEntry entry, int b)
-    // {
-    //    return new BunnyFactEntry(entry.ID * b, entry.Scope);
-    // }
-
-    // public static BunnyFactEntry operator /(BunnyFactEntry entry, int b)
-    // {
-    //     return new BunnyFactEntry(entry.ID / b, entry.Scope);
-    // }
-
-    // public static bool operator >(BunnyFactEntry entry, int b)
-    // {
-    //     return entry.ID > b;
-    // }
-
-    // public static bool operator <(BunnyFactEntry entry, int b)
-    // {
-    //     return entry.ID < b;
-    // }
 }

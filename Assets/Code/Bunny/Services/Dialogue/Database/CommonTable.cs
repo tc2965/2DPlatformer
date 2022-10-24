@@ -6,7 +6,10 @@ using System.Collections.Generic;
 [CreateAssetMenu(menuName = "BDS/Data/Common")]
 public class CommonTableSO: ScriptableObject
 {
-    public readonly static Dictionary<string, BunnyFactEntry> Data = new Dictionary<string, BunnyFactEntry>();
+    public static Dictionary<string, BunnyFactEntry> Data = new Dictionary<string, BunnyFactEntry>{
+        {"enemies_killed",  new BunnyFactEntry(0, "enemies_killed", BunnyFactEntryScope.GLOBAL)},
+        {"player_deaths", new BunnyFactEntry(0, "player_deaths", BunnyFactEntryScope.GLOBAL)}
+    };
 
     public CommonTableSO()
     {
@@ -29,4 +32,11 @@ public class CommonTableSO: ScriptableObject
     {
         Data.Remove(FactName);
     }
+
+    public BunnyFactEntry GetFact(string FactName)
+    {
+        return Data[FactName];
+    }
+
+
 }
