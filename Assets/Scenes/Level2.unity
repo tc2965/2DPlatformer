@@ -3244,17 +3244,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &361409223 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6909993359029550325, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
-  m_PrefabInstance: {fileID: 1462580195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &366741865
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,17 +8540,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7654746255500795827, guid: dbbbbc4113a95431eac64d5bb5499b26, type: 3}
   m_PrefabInstance: {fileID: 1696205306}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &714900220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6909993357754598829, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
-  m_PrefabInstance: {fileID: 1462580195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &731249188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8628,23 +8606,23 @@ PrefabInstance:
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: musicSlider
       value: 
-      objectReference: {fileID: 361409223}
+      objectReference: {fileID: 976356307}
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: settingsMenu
       value: 
-      objectReference: {fileID: 1961426603}
+      objectReference: {fileID: 862892453}
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: musicSliderText
       value: 
-      objectReference: {fileID: 714900220}
+      objectReference: {fileID: 1618987668}
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: soundEffectsSlider
       value: 
-      objectReference: {fileID: 2084188942}
+      objectReference: {fileID: 1195933013}
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: soundEffectsSliderText
       value: 
-      objectReference: {fileID: 800416663}
+      objectReference: {fileID: 1293218044}
     - target: {fileID: 4565955931312590645, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -9051,17 +9029,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &800416663 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6909993357961628651, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
-  m_PrefabInstance: {fileID: 1462580195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &802034167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9647,6 +9614,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &862892453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1174692119990406125, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1462580195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &871789776
 GameObject:
   m_ObjectHideFlags: 0
@@ -10280,7 +10252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888502167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.046251, y: 3.649988, z: -10}
+  m_LocalPosition: {x: -5.0457754, y: 3.649988, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11430,6 +11402,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &976356307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6474918043235784049, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1462580195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1022673429
 GameObject:
   m_ObjectHideFlags: 0
@@ -14018,6 +14001,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1195933013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8082991725144200649, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1462580195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208348234
 GameObject:
   m_ObjectHideFlags: 0
@@ -15028,6 +15022,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbbbc4113a95431eac64d5bb5499b26, type: 3}
+--- !u!114 &1293218044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1794646519256935509, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1462580195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1319676218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17515,6 +17520,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 324439062280192495, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 324439062280192495, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 324439062280192495, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597454927216202986, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1762036399}
+    - target: {fileID: 4597454927216202986, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseOptionsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710515306254679055, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710515306254679055, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175942223393007557, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175942223393007557, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474918043235784049, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1762036399}
+    - target: {fileID: 6474918043235784049, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMusicSliderValueChange
+      objectReference: {fileID: 0}
     - target: {fileID: 6909993357201694643, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -17770,6 +17819,26 @@ PrefabInstance:
     - target: {fileID: 6909993359199880165, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082991725144200649, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1762036399}
+    - target: {fileID: 8082991725144200649, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSoundEffectsSliderValueChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774026156678476576, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774026156678476576, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774026156678476576, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
@@ -20313,6 +20382,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1618987668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4400975188145044232, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1462580195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622284519
 GameObject:
   m_ObjectHideFlags: 0
@@ -23792,11 +23872,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1961426603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6909993357929128120, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
-  m_PrefabInstance: {fileID: 1462580195}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1970244430
 GameObject:
   m_ObjectHideFlags: 0
@@ -25070,17 +25145,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5054485489953018640, guid: d95e7db2f3141483f957c942f6c41fcc, type: 3}
   m_PrefabInstance: {fileID: 61174263}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2084188942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6909993358532288416, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
-  m_PrefabInstance: {fileID: 1462580195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2093479593
 GameObject:
   m_ObjectHideFlags: 0
