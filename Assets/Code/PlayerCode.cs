@@ -48,7 +48,7 @@ public class PlayerCode : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (transform.position.y < -100) {
+        if (transform.position.y < -75) {
             health = 0;
             UpdateHealthBar();
         }
