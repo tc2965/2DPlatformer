@@ -54,16 +54,27 @@ public class PlayerCode : MonoBehaviour
         }
     }
 
+    private float selectMovement() {
+        float keyboardxSpeed = Input.GetAxisRaw("Horizontal") * speed;
+        float controllerxSpeed = Input.GetAxisRaw("Axis 5") * speed;
+        float type = Mathf.Max(Mathf.Abs(keyboardxSpeed), Mathf.Abs(controllerxSpeed));
+        if (type == Mathf.Abs(keyboardxSpeed)) {
+            return keyboardxSpeed;
+        } else {
+            return controllerxSpeed;
+        }
+    }
+
     private void Update() {
         if(!paused) 
         {
             Time.timeScale = 1;
-            if (Input.GetKey(KeyCode.LeftShift)) {
+            if (Input.GetButton("SpeedUp")) {
                 speed = 10;
             } else {
                 speed = 5;
             }
-            xSpeed = Input.GetAxisRaw("Horizontal") * speed;
+            xSpeed = selectMovement();
             if (xSpeed > 0 && !facingRight) {
                 facingRight = !facingRight;
                 transform.Rotate(new Vector3(0, 180, 0));
@@ -73,23 +84,23 @@ public class PlayerCode : MonoBehaviour
             }
             _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
             _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y); 
-            // if (xSpeed > 0.01) {
-            //     _animator.ResetTrigger("Punch");
-            //     _animator.ResetTrigger("Jump");
-            // }
+            if (xSpeed > 0.01) {
+                _animator.ResetTrigger("Punch");
+                _animator.ResetTrigger("Jump");
+            }
 
             grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
             if (Input.GetButtonDown("Jump") && grounded) 
             {
                 _rigidbody.AddForce(new Vector2(0, jumpforce));
                 _animator.SetTrigger("Jump");
-            } else if (Input.GetKeyDown(KeyCode.Q)) {
+            } else if (Input.GetButtonDown("Punch")) {
                 _animator.SetTrigger("Punch");
                 Attack(10);
-            } else if (Input.GetKeyDown(KeyCode.W)) {
+            } else if (Input.GetButtonDown("Kick")) {
                 _animator.SetTrigger("Kick");
                 Attack(15);
-            } else if (Input.GetKeyDown(KeyCode.E)) {
+            } else if (Input.GetButtonDown("Shoot")) {
                 if (numberOfBullets > 0) {
                     numberOfBullets--;
                     _animator.SetTrigger("Shoot");
