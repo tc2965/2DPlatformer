@@ -34171,6 +34171,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &943000264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4329483498407586724, guid: c791d5014b99a4fe68cf9856a3df4721, type: 3}
+  m_PrefabInstance: {fileID: 1399806069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &947298243
 GameObject:
   m_ObjectHideFlags: 0
@@ -50846,6 +50851,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1699868131}
     m_Modifications:
+    - target: {fileID: 3905416789475599432, guid: c791d5014b99a4fe68cf9856a3df4721, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 112e56aec7c6a45ce917d329efeb8d35, type: 3}
+    - target: {fileID: 3905416789475599432, guid: c791d5014b99a4fe68cf9856a3df4721, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905416789475599432, guid: c791d5014b99a4fe68cf9856a3df4721, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4329483498407586724, guid: c791d5014b99a4fe68cf9856a3df4721, type: 3}
       propertyPath: m_Name
       value: player_0
@@ -50918,12 +50935,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4329483498407586731, guid: c791d5014b99a4fe68cf9856a3df4721, type: 3}
   m_PrefabInstance: {fileID: 1399806069}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 943000264}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9016d566baec64f8c9f49b94cb801adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1399806079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943000264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75804d1473ab04a42955d4ca3fbc1dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpforce: 800
 --- !u!1 &1405041836
 GameObject:
   m_ObjectHideFlags: 0
