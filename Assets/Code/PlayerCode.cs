@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCode : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerCode : MonoBehaviour
     float xSpeed =  0;
     private bool facingRight;
     private int numberOfBullets = 0;
+    [SerializeField] private TextMeshProUGUI ammoCountText;
 
     void Start()
     {
@@ -92,6 +94,7 @@ public class PlayerCode : MonoBehaviour
             } else if (Input.GetKeyDown(KeyCode.E)) {
                 if (numberOfBullets > 0) {
                     numberOfBullets--;
+                    UpdateAmmo();
                     _animator.SetTrigger("Shoot");
                     GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, transform.rotation);
                     bullet.GetComponent<Rigidbody2D>().AddForce(attackPoint.right * 5000.0f);
@@ -137,5 +140,10 @@ public class PlayerCode : MonoBehaviour
 
     public void IncrementBullets() {
         numberOfBullets += 10;
+        UpdateAmmo();
+    }
+
+    public void UpdateAmmo() {
+        ammoCountText.text = "ammo: " + numberOfBullets.ToString();
     }
 }
