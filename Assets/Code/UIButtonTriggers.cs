@@ -80,6 +80,15 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MainMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""593d46f2-7f14-430a-9907-512fabbcabb0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                     ""action"": ""Sfx"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b08b84b-4a29-47ac-9479-e37bfafc0236"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MainMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
         m_UI_Restart = m_UI.FindAction("Restart", throwIfNotFound: true);
         m_UI_Volume = m_UI.FindAction("Volume", throwIfNotFound: true);
         m_UI_Sfx = m_UI.FindAction("Sfx", throwIfNotFound: true);
+        m_UI_MainMenu = m_UI.FindAction("MainMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +292,7 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Restart;
     private readonly InputAction m_UI_Volume;
     private readonly InputAction m_UI_Sfx;
+    private readonly InputAction m_UI_MainMenu;
     public struct UIActions
     {
         private @UIButtonTriggers m_Wrapper;
@@ -281,6 +303,7 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
         public InputAction @Restart => m_Wrapper.m_UI_Restart;
         public InputAction @Volume => m_Wrapper.m_UI_Volume;
         public InputAction @Sfx => m_Wrapper.m_UI_Sfx;
+        public InputAction @MainMenu => m_Wrapper.m_UI_MainMenu;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +331,9 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                 @Sfx.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSfx;
                 @Sfx.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSfx;
                 @Sfx.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSfx;
+                @MainMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMainMenu;
+                @MainMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMainMenu;
+                @MainMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMainMenu;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,6 +356,9 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                 @Sfx.started += instance.OnSfx;
                 @Sfx.performed += instance.OnSfx;
                 @Sfx.canceled += instance.OnSfx;
+                @MainMenu.started += instance.OnMainMenu;
+                @MainMenu.performed += instance.OnMainMenu;
+                @MainMenu.canceled += instance.OnMainMenu;
             }
         }
     }
@@ -342,5 +371,6 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
         void OnRestart(InputAction.CallbackContext context);
         void OnVolume(InputAction.CallbackContext context);
         void OnSfx(InputAction.CallbackContext context);
+        void OnMainMenu(InputAction.CallbackContext context);
     }
 }
