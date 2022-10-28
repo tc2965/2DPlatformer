@@ -22,9 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soundEffectsSliderText;
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
-
-    private bool togglePause = false;
-
+    
     void Awake()
     {
         dialogueManager = BunnyDialogueManager.Instance;

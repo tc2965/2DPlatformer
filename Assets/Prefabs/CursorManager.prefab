@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2030529922086994107}
-  - component: {fileID: 723067385755586367}
   - component: {fileID: 8108504379523006339}
+  - component: {fileID: 5114422562298182393}
   m_Layer: 0
   m_Name: CursorManager
   m_TagString: Untagged
@@ -34,23 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &723067385755586367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5197367428211065341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb5b11cca6d664334b0e97b52ffff006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 8108504379523006339}
-  cursorTransform: {fileID: 7073449074833363550}
-  cursorSpeed: 1000
-  canvasRectTransform: {fileID: 0}
-  canvas: {fileID: 0}
 --- !u!114 &8108504379523006339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +108,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5114422562298182393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197367428211065341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd3ff55163584c60825ee555f713895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
+  cursorTransform: {fileID: 7073449074833363550}
+  cursorSpeed: 1000
+  canvasRectTransform: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &9006899183932077446
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
