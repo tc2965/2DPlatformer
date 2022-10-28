@@ -11,14 +11,17 @@ public class EnemyHealth : MonoBehaviour
     public GameObject healthImage; 
     public Slider healthBar;
     Animator _animator;
+    ToothBoss boss;
     // private BunnyExamplePublisher enemyDeathPublisher;
 
     void Start()
     {
         maxHealth = 100;
         health = maxHealth;
-        healthImage.SetActive(false);
+        if(healthImage != null)
+            healthImage.SetActive(false);
         _animator = GetComponent<Animator>();
+        boss = GetComponent<ToothBoss>();
         // GameObject publisher = GameObject.FindGameObjectWithTag("Publisher");
         // if (publisher != null) {
         //     enemyDeathPublisher = publisher.GetComponent<BunnyExamplePublisher>();
@@ -29,8 +32,9 @@ public class EnemyHealth : MonoBehaviour
 
     void Update() 
     {
-        healthBar.value = CalculateHealth();
-        if (health < maxHealth)
+        if(healthBar != null)
+            healthBar.value = CalculateHealth();
+        if (health < maxHealth && healthImage != null)
         {
             healthImage.SetActive(true);
         }
@@ -43,6 +47,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage) 
     {
+        if(boss)
+            boss.TakeDamage((float) damage);
         health -= damage;
         if (health <= 0)
         {
