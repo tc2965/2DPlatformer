@@ -50,6 +50,7 @@ public class PlayerCode : MonoBehaviour
         BunnyEventManager.Instance.RegisterEvent("PlayerTakeDamage", this);
         Action<BunnyBrokerMessage<float>> takeDamageCallback = BunnyTakeDamage;
         BunnyEventManager.Instance.OnEventRaised<float>("PlayerTakeDamage", takeDamageCallback);
+        UpdateAmmo();
     }
     
 
