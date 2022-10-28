@@ -53,6 +53,15 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""731793d8-d6de-49df-b35e-89c6238722ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                     ""action"": ""Options"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ec0ad97-ebcd-4102-be7e-0c6448062784"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
         m_UI_Play = m_UI.FindAction("Play", throwIfNotFound: true);
         m_UI_Quit = m_UI.FindAction("Quit", throwIfNotFound: true);
         m_UI_Options = m_UI.FindAction("Options", throwIfNotFound: true);
+        m_UI_Restart = m_UI.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,6 +182,7 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Play;
     private readonly InputAction m_UI_Quit;
     private readonly InputAction m_UI_Options;
+    private readonly InputAction m_UI_Restart;
     public struct UIActions
     {
         private @UIButtonTriggers m_Wrapper;
@@ -168,6 +190,7 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
         public InputAction @Play => m_Wrapper.m_UI_Play;
         public InputAction @Quit => m_Wrapper.m_UI_Quit;
         public InputAction @Options => m_Wrapper.m_UI_Options;
+        public InputAction @Restart => m_Wrapper.m_UI_Restart;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,6 +209,9 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                 @Options.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOptions;
                 @Options.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOptions;
                 @Options.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOptions;
+                @Restart.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRestart;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,6 +225,9 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
                 @Options.started += instance.OnOptions;
                 @Options.performed += instance.OnOptions;
                 @Options.canceled += instance.OnOptions;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
         }
     }
@@ -208,5 +237,6 @@ public partial class @UIButtonTriggers : IInputActionCollection2, IDisposable
         void OnPlay(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnOptions(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }

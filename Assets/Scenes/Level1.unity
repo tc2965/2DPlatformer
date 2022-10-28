@@ -19031,6 +19031,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 506310449097595798, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: QuitButton
+      value: 
+      objectReference: {fileID: 1482588160}
+    - target: {fileID: 506310449097595798, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: ResumeButton
+      value: 
+      objectReference: {fileID: 1482588163}
+    - target: {fileID: 506310449097595798, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: OptionsButton
+      value: 
+      objectReference: {fileID: 1482588161}
+    - target: {fileID: 506310449097595798, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: RestartButton
+      value: 
+      objectReference: {fileID: 1482588162}
     - target: {fileID: 4597454927216202986, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -22337,6 +22353,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1482588160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6909993358625493221, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1264881474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1482588161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6909993357583271537, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1264881474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1482588162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6909993358361949917, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1264881474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1482588163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6909993357809025973, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+  m_PrefabInstance: {fileID: 1264881474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1494585128
 GameObject:
   m_ObjectHideFlags: 0
@@ -29833,6 +29869,22 @@ PrefabInstance:
     - target: {fileID: 68712107963887142, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386918361064264831, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386918361064264831, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386918361064264831, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386918361064264831, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
