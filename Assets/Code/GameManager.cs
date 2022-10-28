@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
         SaveOptions();
         settingsMenu.SetActive(false);
     }
+    
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
