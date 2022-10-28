@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +46,12 @@ public class PlayerCode : MonoBehaviour
         } else {
             print("no game manager found in enemy health");
         }
+        print(gameObject.name);
+        BunnyEventManager.Instance.RegisterEvent("PlayerTakeDamage", this);
+        Action<BunnyBrokerMessage<float>> takeDamageCallback = BunnyTakeDamage;
+        BunnyEventManager.Instance.OnEventRaised<float>("PlayerTakeDamage", takeDamageCallback);
     }
+    
 
     // <-- NEEDED FOR INPUT ------------------------------>
     public void Move(InputAction.CallbackContext context) {
@@ -166,5 +172,11 @@ public class PlayerCode : MonoBehaviour
 
     public void UpdateAmmo() {
         ammoCountText.text = "ammo: " + numberOfBullets.ToString();
+    }
+
+    public void BunnyTakeDamage(BunnyBrokerMessage<float> data)
+    {
+        print("Player is taking damage!");
+        TakeDamage(data.payload);
     }
 }

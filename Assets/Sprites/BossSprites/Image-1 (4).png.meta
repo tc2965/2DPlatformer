@@ -156,11 +156,11 @@ TextureImporter:
       name: Image-1 (4)_0
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 44
-        height: 45
-      alignment: 0
+        width: 64
+        height: 64
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -177,11 +177,11 @@ TextureImporter:
       name: Image-1 (4)_1
       rect:
         serializedVersion: 2
-        x: 73
+        x: 64
         y: 0
-        width: 45
-        height: 45
-      alignment: 0
+        width: 64
+        height: 64
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -198,11 +198,11 @@ TextureImporter:
       name: Image-1 (4)_2
       rect:
         serializedVersion: 2
-        x: 139
+        x: 128
         y: 0
-        width: 44
-        height: 45
-      alignment: 0
+        width: 64
+        height: 64
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -219,11 +219,11 @@ TextureImporter:
       name: Image-1 (4)_3
       rect:
         serializedVersion: 2
-        x: 201
+        x: 192
         y: 0
-        width: 45
-        height: 45
-      alignment: 0
+        width: 64
+        height: 64
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
