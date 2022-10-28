@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerCode : MonoBehaviour
@@ -82,8 +83,6 @@ public class PlayerCode : MonoBehaviour
     }
 
     public void SpeedUp(InputAction.CallbackContext context) {
-        // print(context);
-        // print(context.ReadValueAsButton());
         if (context.performed && context.ReadValueAsButton()) {
             speed = 10.0f;
         } else {
@@ -123,27 +122,6 @@ public class PlayerCode : MonoBehaviour
             //     speed = 5;
             // }
 
-            grounded = Physics2D.OverlapCircle(feetTrans.position, .3f, groundLayer);
-            if (Input.GetButtonDown("Jump") && grounded) 
-            {
-                _rigidbody.AddForce(new Vector2(0, jumpforce));
-                _animator.SetTrigger("Jump");
-            } else if (Input.GetKeyDown(KeyCode.Q)) {
-                _animator.SetTrigger("Punch");
-                Attack(10);
-            } else if (Input.GetKeyDown(KeyCode.W)) {
-                _animator.SetTrigger("Kick");
-                Attack(15);
-            } else if (Input.GetKeyDown(KeyCode.E)) {
-                if (numberOfBullets > 0) {
-                    numberOfBullets--;
-                    UpdateAmmo();
-                    _animator.SetTrigger("Shoot");
-                    GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, transform.rotation);
-                    bullet.GetComponent<Rigidbody2D>().AddForce(attackPoint.right * 5000.0f);
-                    Attack(25);
-                }
-            }
         } 
         else 
         {
