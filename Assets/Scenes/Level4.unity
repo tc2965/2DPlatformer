@@ -7610,71 +7610,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &844442947
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5972093111351797355, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_Name
-      value: enemy1_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -27
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111593908988, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5972093111593908988, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
 --- !u!1 &852503667
 GameObject:
   m_ObjectHideFlags: 0
@@ -11390,7 +11325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 68712107488591836, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 68712107488591836, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12335,7 +12270,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.145, y: 0.23}
+  m_Offset: {x: 0.33334434, y: 0.2090728}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12346,7 +12281,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29, y: 0.46}
+  m_Size: {x: 0.47136894, y: 0.4181456}
   m_EdgeRadius: 0
 --- !u!114 &1296235599
 MonoBehaviour:
@@ -12366,7 +12301,7 @@ MonoBehaviour:
     m_Bits: 513
   attackOffset: {x: 1, y: 1, z: 0}
   attackDamage: 10
-  maxAttackRange: 10
+  maxAttackRange: 1.5
   attackCooldown: 1
   Health: 100
   isFlipped: 0

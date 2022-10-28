@@ -18,7 +18,7 @@ public class ToothBoss : MonoBehaviour
 
     public Vector3 attackOffset;
     public int attackDamage = 10;
-    public int maxAttackRange = 10;
+    public float maxAttackRange = 10;
     public float attackCooldown = 1;
     private float attackTimer = 0;
     public int Health = 100;
@@ -62,8 +62,19 @@ public class ToothBoss : MonoBehaviour
         }
     }
 
+    public bool PlayerInAttackRange()
+    {
+        if(Vector2.Distance(player.position, _rigidbody.position) <= maxAttackRange)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void Attack(Animator animator) {
-        if(attackTimer <= 0 && Vector2.Distance(player.position, _rigidbody.position) <= maxAttackRange)
+        print("Player in range?" + PlayerInAttackRange());
+        print("Player  attack timer <= 0" + (bool)(attackTimer <= 0));
+        if(attackTimer <= 0 && PlayerInAttackRange())
         {
             animator.SetTrigger("AttackRequest");
             attackTimer = 1;
