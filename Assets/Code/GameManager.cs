@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Escape") && pauseMenu != null)
+        if ((Input.GetButtonDown("Cancel")) && pauseMenu != null)
         {
             if (pauseMenu.activeInHierarchy)
             {
