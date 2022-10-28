@@ -45,6 +45,7 @@ public class CursorController : MonoBehaviour
         } else if (!virtualMouse.added) {
             InputSystem.AddDevice("VirtualMouse");
         }
+        print(virtualMouse);
 
         InputUser.PerformPairingWithDevice(virtualMouse, playerInput.user);
 
@@ -70,6 +71,8 @@ public class CursorController : MonoBehaviour
 
         Vector2 deltaValue = Gamepad.current.leftStick.ReadValue();
         deltaValue *= cursorSpeed * Time.deltaTime;
+        print("deltaValue");
+        print(deltaValue);
 
         Vector2 currentPosition = virtualMouse.position.ReadValue();
         Vector2 newPosition = currentPosition + deltaValue;
@@ -79,6 +82,8 @@ public class CursorController : MonoBehaviour
 
         InputState.Change(virtualMouse.position, newPosition);
         InputState.Change(virtualMouse.delta, deltaValue);
+        print("virtualMouse.position");
+        print(virtualMouse.position);
 
         bool aButtonIsPressed = Gamepad.current.aButton.IsPressed();
         if (previousMouseState != aButtonIsPressed) {
