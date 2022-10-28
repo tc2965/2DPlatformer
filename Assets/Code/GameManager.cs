@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soundEffectsSliderText;
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
+
+    private bool togglePause = false;
 
     void Awake()
     {
@@ -46,9 +49,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // public void TogglePauseMenu(InputAction.CallbackContext context) {
+    //     print("TOGGLE WAS CALLED");
+    //     if (context.performed) {
+    //         print("TOGGLE PAUSE");
+    //         togglePause = !togglePause; 
+    //         if (togglePause) {
+    //             ShowPauseMenu();
+    //         } else {
+    //             ClosePauseMenu();
+    //         }
+    //     }
+    // }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu != null)
+        if (Input.GetButtonDown("Escape") && pauseMenu != null)
         {
             if (pauseMenu.activeInHierarchy)
             {
