@@ -21,11 +21,16 @@ public class ToothBoss : MonoBehaviour
     public float maxAttackRange = 10;
     public float attackCooldown = 1;
     private float attackTimer = 0;
-    public int Health = 100;
+    public float Health = 100;
 
     public bool isFlipped = false;
     public Transform player;
+    UIBossHealthBar bossHealthBar;
 
+    private void Awake()
+    {
+        bossHealthBar = FindObjectOfType<UIBossHealthBar>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,8 @@ public class ToothBoss : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        bossHealthBar.SetBossMaxHealth((int) Health);
+        bossHealthBar.SetBossName("Dentist");
     }
 
     // Update is called once per frame
@@ -41,6 +48,10 @@ public class ToothBoss : MonoBehaviour
         // _rigidbody.velocity = new Vector2(_rigidbody.velocity.x + 0.1, _rigidbody.velocity.y);
         _animator.SetFloat("Speed", Mathf.Abs(0.15f));
         attackTimer -= Time.deltaTime;
+        BunnyEventManager.Instance.Fire<int>("BossOnDamage", new BunnyBrokerMessage<int>(
+            (int) Health,
+            this
+        ));
     }
 
     public void LookAtPlayer()
@@ -60,6 +71,15 @@ public class ToothBoss : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
             isFlipped = true;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Health -= damage;
+        BunnyEventManager.Instance.Fire<int>("BossOnDamage", new BunnyBrokerMessage<int>(
+            (int) Health,
+            this
+        ));
     }
 
     public bool PlayerInAttackRange()
