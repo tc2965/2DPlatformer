@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instance: {fileID: 0}
   source: {fileID: 5369544076596400986}
-  source_player: {fileID: 0}
   musicMixerGroup: {fileID: 3652409134839559056, guid: d64a55dd99a3d46d2a2f3a9df299009b, type: 2}
   soundEffectsMixerGroup: {fileID: 1736034979548954015, guid: d64a55dd99a3d46d2a2f3a9df299009b, type: 2}
   sounds:
@@ -91,34 +90,6 @@ MonoBehaviour:
     clipName: Win Screen
     audioClip: {fileID: 8300000, guid: ebda61e5cae5949d1b4007ec937e2c52, type: 3}
     isLoop: 1
-    playOnAwake: 0
-    volume: 1
-  - audioType: 0
-    source: {fileID: 0}
-    clipName: Picking up candy
-    audioClip: {fileID: 8300000, guid: fd6f37c3dcf074af69caf7d0b6ccbe8a, type: 3}
-    isLoop: 0
-    playOnAwake: 0
-    volume: 1
-  - audioType: 0
-    source: {fileID: 0}
-    clipName: Kicking/Punching
-    audioClip: {fileID: 8300000, guid: fce4116fcc1bc4f678c0107599a3ebdc, type: 3}
-    isLoop: 0
-    playOnAwake: 0
-    volume: 1
-  - audioType: 0
-    source: {fileID: 0}
-    clipName: Shooting
-    audioClip: {fileID: 8300000, guid: 7632fe73fc91d4388aab47f6887f72fc, type: 3}
-    isLoop: 0
-    playOnAwake: 0
-    volume: 1
-  - audioType: 0
-    source: {fileID: 0}
-    clipName: Getting Hurt
-    audioClip: {fileID: 8300000, guid: b1f307cadd4374173be362707e1ed9b7, type: 3}
-    isLoop: 0
     playOnAwake: 0
     volume: 1
 --- !u!82 &5369544076596400986
