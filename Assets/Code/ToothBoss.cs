@@ -16,6 +16,8 @@ public class ToothBoss : MonoBehaviour
     public BossState CurrentState;
     public LayerMask AttackMask;
 
+    public EnemyHealth HealthManager;
+
     public Vector3 attackOffset;
     public int attackDamage = 10;
     public float maxAttackRange = 10;
@@ -27,6 +29,10 @@ public class ToothBoss : MonoBehaviour
     public Transform player;
     UIBossHealthBar bossHealthBar;
 
+    public float hurtInvincibilityTimer = 0f;
+    public float maxHurtInvinicibilityTimer = 3f;
+    public bool enraged = false;
+
     private void Awake()
     {
         bossHealthBar = FindObjectOfType<UIBossHealthBar>();
@@ -37,9 +43,13 @@ public class ToothBoss : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        HealthManager = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         bossHealthBar.SetBossMaxHealth((int) Health);
         bossHealthBar.SetBossName("Dentist");
+
+        HealthManager.health = Health;
+        HealthManager.maxHealth = Health;
     }
 
     // Update is called once per frame
@@ -48,10 +58,31 @@ public class ToothBoss : MonoBehaviour
         // _rigidbody.velocity = new Vector2(_rigidbody.velocity.x + 0.1, _rigidbody.velocity.y);
         _animator.SetFloat("Speed", Mathf.Abs(0.15f));
         attackTimer -= Time.deltaTime;
+        hurtInvincibilityTimer -= Time.deltaTime;
         BunnyEventManager.Instance.Fire<int>("BossOnDamage", new BunnyBrokerMessage<int>(
             (int) Health,
             this
         ));
+        if(Health <= 500 && !enraged)
+        {
+            enraged = true;
+            _animator.SetTrigger("EnrageRequest");
+            attackDamage = 20;
+            maxHurtInvinicibilityTimer = 10f;
+            RegenerateHealth();
+        }
+    }
+
+    public void RegenerateHealth()
+    {
+        StartCoroutine(RegenerateHealthAsync());
+    }
+
+    public IEnumerator RegenerateHealthAsync()
+    {
+        for(int i = 0; i <= 500; i+= 25) {
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     public void LookAtPlayer()
@@ -76,6 +107,10 @@ public class ToothBoss : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Health -= damage;
+        if(hurtInvincibilityTimer <= 0) {
+            _animator.SetTrigger("HurtRequest");
+            hurtInvincibilityTimer = maxHurtInvinicibilityTimer;
+        }
         BunnyEventManager.Instance.Fire<int>("BossOnDamage", new BunnyBrokerMessage<int>(
             (int) Health,
             this

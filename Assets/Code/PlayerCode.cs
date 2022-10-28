@@ -173,6 +173,8 @@ public class PlayerCode : MonoBehaviour
     }
 
     public void UpdateAmmo() {
+        if(ammoCountText == null)
+            return;
         ammoCountText.text = "ammo: " + numberOfBullets.ToString();
     }
 
