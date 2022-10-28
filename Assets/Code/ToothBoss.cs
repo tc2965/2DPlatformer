@@ -16,6 +16,8 @@ public class ToothBoss : MonoBehaviour
     public BossState CurrentState;
     public LayerMask AttackMask;
 
+    public EnemyHealth HealthManager;
+
     public Vector3 attackOffset;
     public int attackDamage = 10;
     public float maxAttackRange = 10;
@@ -37,9 +39,13 @@ public class ToothBoss : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        HealthManager = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         bossHealthBar.SetBossMaxHealth((int) Health);
         bossHealthBar.SetBossName("Dentist");
+
+        HealthManager.health = Health;
+        HealthManager.maxHealth = Health;
     }
 
     // Update is called once per frame
