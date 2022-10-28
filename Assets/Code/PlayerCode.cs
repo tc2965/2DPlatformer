@@ -104,6 +104,7 @@ public class PlayerCode : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, transform.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(attackPoint.right * 5000.0f);
             Attack(25);
+            UpdateAmmo();
         }
     }
     // <-------------------------------------------------->
