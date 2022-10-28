@@ -33389,6 +33389,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6144070900558651940, guid: 58fd89c8ced6c4bb587321e35bb02115, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58fd89c8ced6c4bb587321e35bb02115, type: 3}
 --- !u!1001 &5972093111344521449
@@ -33402,10 +33406,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy1_0
       objectReference: {fileID: 0}
-    - target: {fileID: 5972093111351797356, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -33416,7 +33416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 5972093111351797359, guid: 5489e55c7e5b24b4f9f171c87c4f9c46, type: 3}
       propertyPath: m_LocalPosition.z
