@@ -1926,6 +1926,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 68712107488591836, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
   m_PrefabInstance: {fileID: 217374791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &217374793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 68712107488591838, guid: 0620824ad83bd4982aa44d41bda02825, type: 3}
+  m_PrefabInstance: {fileID: 217374791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9016d566baec64f8c9f49b94cb801adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &218123722
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,6 +4746,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5369544076596400981, guid: 4aa86a036a107452990db21ee2cc389b, type: 3}
+      propertyPath: Instance
+      value: 
+      objectReference: {fileID: 1762036399}
     - target: {fileID: 5369544076596400986, guid: 4aa86a036a107452990db21ee2cc389b, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -8658,7 +8673,7 @@ PrefabInstance:
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 217374793}
     - target: {fileID: 4565955931312590644, guid: 9b02c419ceb394103ba64bab12c8cd9c, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -10320,7 +10335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888502167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0086727, y: 3.649991, z: -10}
+  m_LocalPosition: {x: -5.0373883, y: 3.6499884, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
