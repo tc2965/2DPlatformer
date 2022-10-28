@@ -17851,6 +17851,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2678817377785718901, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4597454927216202986, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -18107,6 +18111,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6909993358825020565, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6909993358834505126, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -18130,6 +18138,10 @@ PrefabInstance:
     - target: {fileID: 6909993359059117132, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909993359059117232, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6909993359171656686, guid: f28a672b8bbaf45599cc4c11a08b6a8f, type: 3}
       propertyPath: m_Layer
