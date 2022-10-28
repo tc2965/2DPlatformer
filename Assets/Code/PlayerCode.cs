@@ -56,6 +56,7 @@ public class PlayerCode : MonoBehaviour
 
     // <-- NEEDED FOR INPUT ------------------------------>
     public void Move(InputAction.CallbackContext context) {
+        print("moving");
         xSpeed = context.ReadValue<Vector2>().x;
         if (xSpeed > 0 && !facingRight) {
             facingRight = !facingRight;
