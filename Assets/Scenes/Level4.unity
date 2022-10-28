@@ -12958,7 +12958,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33334434, y: 0.18025461}
+  m_Offset: {x: 0.36211294, y: 0.18025461}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12969,7 +12969,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4713689, y: 0.36050922}
+  m_Size: {x: 0.41383168, y: 0.36050922}
   m_EdgeRadius: 0
 --- !u!114 &1296235599
 MonoBehaviour:
@@ -12995,6 +12995,9 @@ MonoBehaviour:
   Health: 1000
   isFlipped: 0
   player: {fileID: 0}
+  hurtInvincibilityTimer: 0.5
+  maxHurtInvinicibilityTimer: 3
+  enraged: 0
 --- !u!114 &1296235600
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(healthBar != null)
             healthBar.value = CalculateHealth();
-        if (health < maxHealth)
+        if (health < maxHealth && healthImage != null)
         {
             healthImage.SetActive(true);
         }
