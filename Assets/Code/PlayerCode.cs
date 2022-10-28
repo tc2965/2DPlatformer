@@ -45,6 +45,7 @@ public class PlayerCode : MonoBehaviour
         } else {
             print("no game manager found in enemy health");
         }
+        UpdateAmmo();
     }
 
     // <-- NEEDED FOR INPUT ------------------------------>
