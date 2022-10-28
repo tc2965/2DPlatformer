@@ -42,9 +42,10 @@ public class CursorController : MonoBehaviour
         mainCamera = Camera.main;
         if (virtualMouse == null) {
             virtualMouse = (Mouse)InputSystem.AddDevice("VirtualMouse");
-        } else if (!virtualMouse.added) {
-            InputSystem.AddDevice("VirtualMouse");
         }
+        // } else if (!virtualMouse.added) {
+        //     InputSystem.AddDevice("VirtualMouse");
+        // }
         print(virtualMouse);
 
         InputUser.PerformPairingWithDevice(virtualMouse, playerInput.user);
@@ -53,18 +54,26 @@ public class CursorController : MonoBehaviour
             Vector2 position = cursorTransform.anchoredPosition;
             InputState.Change(virtualMouse.position, position);
         }
+        // InputSystem.onBeforeUpdate += Testing;
         InputSystem.onAfterUpdate += UpdateMotion;
     }
 
+    // private void Testing() 
+    // {
+    //     print("trying testing");
+    // }
+
     private void OnDisable()
     {
-        if (virtualMouse != null && virtualMouse.added) {
-            InputSystem.RemoveDevice(virtualMouse);
-        }
+        // if (virtualMouse != null && virtualMouse.added) {
+        playerInput.user.UnpairDevice(virtualMouse);
+        InputSystem.RemoveDevice(virtualMouse);
+        // }
         InputSystem.onAfterUpdate -= UpdateMotion;
     }
 
     private void UpdateMotion() {
+        Debug.Log(Gamepad.current);
         if (virtualMouse == null || Gamepad.current == null) {
             return;
         }
