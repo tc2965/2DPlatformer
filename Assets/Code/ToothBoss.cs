@@ -28,6 +28,7 @@ public class ToothBoss : MonoBehaviour
     public bool isFlipped = false;
     public Transform player;
     UIBossHealthBar bossHealthBar;
+    GameManager gameManager;
 
     public float hurtInvincibilityTimer = 0f;
     public float maxHurtInvinicibilityTimer = 3f;
@@ -48,6 +49,12 @@ public class ToothBoss : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         bossHealthBar.SetBossMaxHealth((int) Health);
         bossHealthBar.SetBossName("Dentist");
+        GameObject gameManagement = GameObject.FindGameObjectWithTag("GameManager");
+        if (gameManagement) {
+            gameManager = gameManagement.GetComponent<GameManager>();
+        } else {
+            print("no game manager found in enemy health");
+        }
 
         HealthManager.health = Health;
         HealthManager.maxHealth = Health;
@@ -117,6 +124,9 @@ public class ToothBoss : MonoBehaviour
             (int) Health,
             this
         ));
+        if (Health <= 0) {
+            gameManager.LoadNextLevel();
+        }
     }
 
     public bool PlayerInAttackRange()
