@@ -21,7 +21,7 @@ public class ButtonToGamePad : MonoBehaviour
     }
 
     public void Quit(InputAction.CallbackContext context) {
-        Button options = OptionsButton.GetComponent<Button>();
-        options.onClick.Invoke();
+        Button quit = QuitButton.GetComponent<Button>();
+        quit.onClick.Invoke();
     }
 }
