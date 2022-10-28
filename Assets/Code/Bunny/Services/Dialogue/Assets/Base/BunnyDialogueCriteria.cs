@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BunnyDialogueCriteria
+public abstract class BunnyDialogueCriteria
 {
-  public List<BunnyFactEntry> Facts;
+  public BunnyBaseEntry[] Facts;
 
-  public bool IsSatisfied()
+  public virtual bool IsSatisfied()
   {
     // Will search DB tables for current fact status
     return false;

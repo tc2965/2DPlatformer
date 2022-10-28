@@ -26,8 +26,7 @@ public abstract class BunnyRuntimeFactSet<T> : ScriptableObject
         return items[entry];
     }
 
-
-    public void AddToList(BunnyFactEntry entry, T val)
+    public void Add(BunnyFactEntry entry, T val)
     {
         if(!items.ContainsKey(entry))
         {
@@ -35,7 +34,7 @@ public abstract class BunnyRuntimeFactSet<T> : ScriptableObject
         }
     }
 
-    public void RemoveFromList(BunnyFactEntry entry)
+    public void Remove(BunnyFactEntry entry)
     {
         if(items.ContainsKey(entry))
         {

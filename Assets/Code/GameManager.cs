@@ -14,12 +14,18 @@ public class GameManager : MonoBehaviour
     public PlayerCode player;
     public float musicVolume;
     public float soundEffectsVolume;
+    public BunnyDialogueManager dialogueManager;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundEffectsSlider;
     [SerializeField] private TextMeshProUGUI musicSliderText;
     [SerializeField] private TextMeshProUGUI soundEffectsSliderText;
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
+
+    void Awake()
+    {
+        dialogueManager = BunnyDialogueManager.Instance;
+    }
 
     void Start()
     {
