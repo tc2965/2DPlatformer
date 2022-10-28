@@ -19,7 +19,6 @@ public class CursorController : MonoBehaviour
     private Canvas canvas;
 
     private bool previousMouseState;
-    private bool togglePause = false;
     private Mouse virtualMouse;
     private Camera mainCamera;
     private GamepadCursor controls;
@@ -58,9 +57,10 @@ public class CursorController : MonoBehaviour
 
     private void OnDisable()
     {
-        InputSystem.RemoveDevice(virtualMouse);
+        if (virtualMouse != null && virtualMouse.added) {
+            InputSystem.RemoveDevice(virtualMouse);
+        }
         InputSystem.onAfterUpdate -= UpdateMotion;
-        // playerInput.onControlsChanged -= onControlsChanged;
     }
 
     private void UpdateMotion() {
