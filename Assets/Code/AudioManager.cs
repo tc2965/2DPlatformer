@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] public GameManager Instance;
     [SerializeField] public AudioSource source;
-    [SerializeField] public AudioSource source_player;
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
     [SerializeField] private Sound[] sounds;
@@ -106,24 +105,4 @@ public class AudioManager : MonoBehaviour
         musicMixerGroup.audioMixer.SetFloat("Music", Mathf.Log10(Instance.musicVolume) * 20);
         soundEffectsMixerGroup.audioMixer.SetFloat("SFX", Mathf.Log10(Instance.soundEffectsVolume) * 20);
     }*/
-
-    public void PlayCandyPickUp()
-    {
-        Play(sounds[6], source_player);
-    }
-
-    public void PlayAttacking()
-    {
-        Play(sounds[7], source_player);
-    }
-
-    public void PlayShooting()
-    {
-        Play(sounds[8], source_player);
-    }
-
-    public void PlayGettingHurt()
-    {
-        Play(sounds[9], source_player);
-    }
 }

@@ -29,7 +29,6 @@ public class PlayerCode : MonoBehaviour
     Rigidbody2D _rigidbody; //in inspector: make gravity scale 5, freeze rotation on z axis
     Animator _animator;
     GameManager gameManager;
-    AudioManager audioManager;
     float xSpeed =  0;
     private bool facingRight;
     private int numberOfBullets = 0;
@@ -47,14 +46,6 @@ public class PlayerCode : MonoBehaviour
         } else {
             print("no game manager found in enemy health");
         }
-
-        GameObject audioManagement = GameObject.FindGameObjectWithTag("Music");
-        if (audioManagement) {
-            audioManager = audioManagement.GetComponent<AudioManager>();
-        } else {
-            print("no audio manager found in level");
-        }
-
         print(gameObject.name);
         BunnyEventManager.Instance.RegisterEvent("PlayerTakeDamage", this);
         Action<BunnyBrokerMessage<float>> takeDamageCallback = BunnyTakeDamage;
@@ -85,7 +76,6 @@ public class PlayerCode : MonoBehaviour
     public void Punch(InputAction.CallbackContext context) {
         if (context.performed) 
         {
-            audioManager.PlayAttacking();
             _animator.SetTrigger("Punch");
             Attack(10);
         }
@@ -94,7 +84,6 @@ public class PlayerCode : MonoBehaviour
     public void Kick(InputAction.CallbackContext context) {
         if (context.performed) 
         {
-            audioManager.PlayAttacking();
             _animator.SetTrigger("Kick");
             Attack(15);
         }
@@ -111,7 +100,6 @@ public class PlayerCode : MonoBehaviour
     public void Shoot(InputAction.CallbackContext context) {
         if (context.performed && numberOfBullets > 0) {
             numberOfBullets--;
-            audioManager.PlayShooting();           
             _animator.SetTrigger("Shoot");
             GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, transform.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(attackPoint.right * 5000.0f);
@@ -151,7 +139,6 @@ public class PlayerCode : MonoBehaviour
 
     public void TakeDamage(float damage = 3.0f) {
         health -= damage;
-        audioManager.PlayGettingHurt();
         _animator.SetTrigger("Damaged");
         UpdateHealthBar();
     }
@@ -181,7 +168,6 @@ public class PlayerCode : MonoBehaviour
     }
 
     public void IncrementBullets() {
-        audioManager.PlayCandyPickUp();
         numberOfBullets += 10;
         UpdateAmmo();
     }
