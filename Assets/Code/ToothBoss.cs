@@ -32,6 +32,7 @@ public class ToothBoss : MonoBehaviour
     public float hurtInvincibilityTimer = 0f;
     public float maxHurtInvinicibilityTimer = 3f;
     public bool enraged = false;
+    public bool enraging = false;
 
     private void Awake()
     {
@@ -108,7 +109,8 @@ public class ToothBoss : MonoBehaviour
     {
         Health -= damage;
         if(hurtInvincibilityTimer <= 0) {
-            _animator.SetTrigger("HurtRequest");
+            if(!enraging)
+                _animator.SetTrigger("HurtRequest");
             hurtInvincibilityTimer = maxHurtInvinicibilityTimer;
         }
         BunnyEventManager.Instance.Fire<int>("BossOnDamage", new BunnyBrokerMessage<int>(

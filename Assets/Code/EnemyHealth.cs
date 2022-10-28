@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public float health; 
-    public float maxHealth; 
+    public float maxHealth = 100; 
     public GameObject healthImage; 
     public Slider healthBar;
     Animator _animator;
@@ -16,7 +16,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        maxHealth = 100;
         health = maxHealth;
         if(healthImage != null)
             healthImage.SetActive(false);
